@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= "Signup Now"
+    form(action="/signup", method="post")
+        .form-wrap
+            label= "Email Address"
+            input.field(type="text", name="email")
+        .form-wrap
+            label= "Password"
+            input.field(type="password", name="password")
+        .form-wrap
+            label= "Confirm Password"
+            input.field(type="password", name="confirm_password")
+        .submit-wrap
+            button(type="submit")= "Submit"

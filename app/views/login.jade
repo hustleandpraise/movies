@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= "Login"
+    if errors.length > 0
+        .message.error= errors
+    form(action="/login", method="post")
+        .form-wrap
+            label= "Email Address"
+            input.field(type="text", name="email")
+        .form-wrap
+            label= "Password"
+            input.field(type="password", name="password")
+        .submit-wrap
+            button(type="submit")= "Login"
