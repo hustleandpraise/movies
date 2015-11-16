@@ -1,7 +1,8 @@
 
 var express     = require('express'),
     router      = express.Router(),
-    services    = require('../services');
+    services    = require('../services'),
+    Passport    = require('passport');
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/',
-    services.passport.authenticate('local', {
+    Passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/login',
         failureFlash: true 

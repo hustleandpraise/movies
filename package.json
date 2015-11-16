@@ -22,7 +22,8 @@
         "moment" : "*",
         "method-override" : "*",
         "connect-flash" : "*",
-        "express-session": "*"
+        "express-session": "*",
+        "bcryptjs" : "*"
     },
     "devDependencies": {
         "gulp": "^3.8.11",

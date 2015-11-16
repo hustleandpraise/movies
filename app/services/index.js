@@ -1,4 +1,4 @@
 module.exports = {
-    passport:   require('./auth'),
-    bookshelf:  require('./bookshelf')
+    Passport:   require('./auth'),
+    Bookshelf:  require('./bookshelf')
 }
