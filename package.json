@@ -23,7 +23,9 @@
         "method-override" : "*",
         "connect-flash" : "*",
         "express-session": "*",
-        "bcryptjs" : "*"
+        "bcryptjs" : "*",
+        "node-fetch" : "*",
+        "lodash" : "*"
     },
     "devDependencies": {
         "gulp": "^3.8.11",

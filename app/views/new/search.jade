@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h1= "New Movie"
+
+    if errors && errors.errors
+            each error in errors.errors
+                .message.error= error.message
+
+    .wrap
+        each movie in movies
+            ul.movie
+                li
+                    img(src=("http://image.tmdb.org/t/p/w500/" + movie.poster_path))
+                li= movie.original_title + "(" + movie.release_date + ")"

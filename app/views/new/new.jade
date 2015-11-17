@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h1= "New Movie"
+
+    if errors && errors.errors
+            each error in errors.errors
+                .message.error= error.message
+
+    form(action="/new", method="post")
+        .field-wrap
+            label= "Movie Title"
+            input.field(type="text", name="title")
+        .submit-wrap
+                button.btn(type="submit")= "Submit"
