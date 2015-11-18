@@ -25,7 +25,11 @@
         "express-session": "*",
         "bcryptjs" : "*",
         "node-fetch" : "*",
-        "lodash" : "*"
+        "lodash" : "*",
+        "slug" : "*",
+        "thief" : "*",
+        "onecolor" : "*", 
+        "request" : "*"
     },
     "devDependencies": {
         "gulp": "^3.8.11",

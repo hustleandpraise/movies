@@ -10,6 +10,7 @@ block content
     form(action="/new", method="post")
         .field-wrap
             label= "Movie Title"
-            input.field(type="text", name="title")
+            input.field.typeahead(type="text", name="id")
+            input.hidden(type="hidden", name="movieid")
         .submit-wrap
                 button.btn(type="submit")= "Submit"

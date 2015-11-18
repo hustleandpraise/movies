@@ -21,7 +21,7 @@ module.exports = (app) => {
     app.use('/signup', SignupController);
     app.use('/login', LoginController);
 
-    // app.all('/new**', ensureAuthenticated);
+    app.all('/new**', ensureAuthenticated);
     app.use('/new', NewController);
 
     app.get('/logout', (req, res) => {
