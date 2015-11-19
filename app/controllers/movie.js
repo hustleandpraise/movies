@@ -9,18 +9,16 @@ var express = require('express'),
 |--------------------------------------------------------------------------
 */
 
-router.get('/', (req, res, next) => {
+router.get('/:movie', (req, res, next) => {
+    var movie = new models.Movie({ url: req.params.movie }).fetch({ withRelated: ['genres', 'user'] });
 
-    var movie = new models.Movie().orderBy('title', 'ASC').fetchAll();
-
-    movie.then((models) => {
-        console.log(models)
-        res.render('index', { movies: models.toJSON() });
+    movie.then((model) => {
+        console.log(model)
+        res.render('movie/index', { movie: model.toJSON(), user: model.relations.user.toJSON(), genres: model.relations.genres.toJSON() });
     });
 
+   
 });
-
-
 
 /*
 |--------------------------------------------------------------------------

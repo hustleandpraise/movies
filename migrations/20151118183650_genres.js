@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('genres', function (table) {
-        table.increments();
+        table.increments().primary();
         table.string('title');
         table.timestamps();
     });

@@ -5,14 +5,15 @@ var express     = require('express'),
     models      = require('../models');
     Passport    = require('passport'),
     Fetch       = require('node-fetch'),
-    _           = require('lodash');
+    _           = require('lodash'),
+    http        = require("http");
 
 function url(id) {
     return "http://api.themoviedb.org/3/movie/" + id + "?api_key=c9dd61be6a740c461bf22c50cc44d1fb";
 }
 
 function poster(img) {
-    return "http://image.tmdb.org/t/p" + img;
+    return "http://image.tmdb.org/t/p/w500" + img;
 }
 
 /*
@@ -34,6 +35,10 @@ router.post('/', (req, res, next) => {
         return result.json();
     }).then(function(json) {
 
+        var genres = json.genres.map((item) => {
+            return item.id;
+        });
+
         var movie = new models.Movie({
             user_id:        req.user.id,
             imdb_id:        json.imdb_id,
@@ -45,12 +50,13 @@ router.post('/', (req, res, next) => {
             poster:         poster(json.poster_path)
         });
 
-        console.log(movie);
-
         movie.save().then((model) => {
-            console.log(model);
-            req.flash('message', 'YAY!')
-            res.redirect('/');
+
+            model.genres().attach(genres).then((genres) => {
+                req.flash('message', 'YAY!')
+                res.redirect('/' + model.get('url'));
+            });
+
         }).catch((err) => {
             console.log(err);
             res.render('new/new', { errors: err, fields: req.body });

@@ -1,7 +1,12 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to the #{title}
-    p By 
-        a(href="http://www.twitter.com/#{author}") #{author}
+    h1= "Should I Bother My Hole?"
+    
+    each movie in movies
+        ul
+            li
+                strong= movie.title
+                = " (" + movie.release_date + ")"
+            li
+                a(href="/" + movie.url)= "View"

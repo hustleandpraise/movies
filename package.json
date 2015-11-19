@@ -23,13 +23,16 @@
         "method-override" : "*",
         "connect-flash" : "*",
         "express-session": "*",
+        "connect-redis": "*",
         "bcryptjs" : "*",
         "node-fetch" : "*",
         "lodash" : "*",
         "slug" : "*",
-        "thief" : "*",
+        "color-thief" : "*",
         "onecolor" : "*", 
-        "request" : "*"
+        "request" : "*",
+        "canvas" : "*",
+        "twitter" : "*"
     },
     "devDependencies": {
         "gulp": "^3.8.11",

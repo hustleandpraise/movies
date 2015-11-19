@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('movies', function (table) {
-        table.increments();
+        table.increments().primary();
         table.integer('user_id');
         table.string('imdb_id');
         table.string('title');

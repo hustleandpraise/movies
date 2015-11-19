@@ -13,7 +13,9 @@ var express         = require('express'),
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'),
     flash           = require('connect-flash'),
-    passport        = require('./app/services/auth');
+    passport        = require('./app/services/auth'),
+    session         = require('express-session'),
+    RedisStore      = require('connect-redis')(session);
 
 
 var app = express();
@@ -39,7 +41,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('express-session')({
+app.use(session({
+    store: new RedisStore(),
     secret: 'robotghostunicorn',
     resave: false,
     saveUninitialized: false

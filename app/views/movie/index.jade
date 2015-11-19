@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    ul
+        li
+            img(src=movie.poster)
+        li= movie.title
+        li= movie.release_date
+        li= movie.description
+        li= movie.runtime
+        li= movie.budget
+
+    ul
+        each genre in genres
+            li= genre.title
+
+    ul
+        li= "Added By " + user.email
